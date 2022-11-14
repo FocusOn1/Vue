@@ -1,3 +1,41 @@
+# 背景
+
+## **官网**
+
+1. 英文官网: https://vuejs.org/
+2. 中文官网: https://cn.vuejs.org/
+
+## **相关**
+
+1. 动态构建用户界面的渐进式 JavaScript 框架 
+2.  作者: [尤雨溪 Evan You](https://github.com/yyx990803)
+
+## **特点**
+
+1. 遵循MVVM模式 
+
+2. 编码简洁, 体积小, 运行效率高, 适合移动/PC端开发
+3. 它本身只关注UI, 也可以引入其它第三方库开发项目
+
+## **与其它 JS 框架的关联**
+
+1. 借鉴Angular 的**模板**和**数据绑定**技术
+2. 借鉴React 的**组件化**和**虚拟DOM**技术
+
+![image-20221114142122726](Vue%E7%AC%94%E8%AE%B0-%E7%AC%94%E8%AE%B0%E5%9B%BE%E8%A1%A8/image-20221114142122726.png)
+
+
+
+## Vue周边库
+
+1. vue-cli: vue脚手架 
+2.  vue-resource 
+3. axios 
+4.  vue-router: 路由 
+5.  vuex: 状态管理 
+6. element-ui: 基于 vue的UI 组件库(PC端)
+  ……
+
 # 1.vue_basic
 
 ## 01 初识Vue
@@ -56,6 +94,8 @@
 </html>
 ```
 
+对了，容器和实例是1对1的！
+
 ## 02 Vue模板语法
 
 ```html
@@ -108,7 +148,7 @@
 </html>
 ```
 
-我的Demo:
+【我的Demo】
 
 ```html
 <!DOCTYPE html>
@@ -144,6 +184,10 @@
 
 </html>
 ```
+
+【效果】
+
+![image-20221114142649124](Vue%E7%AC%94%E8%AE%B0-%E7%AC%94%E8%AE%B0%E5%9B%BE%E8%A1%A8/image-20221114142649124.png)
 
 ## 03 数据绑定
 
@@ -195,9 +239,72 @@
 
 ## 04 el和data的两种写法
 
+```html
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>el与data的两种写法</title>
+		<!-- 引入Vue -->
+		<script type="text/javascript" src="../js/vue.js"></script>
+	</head>
+	<body>
+		<!-- 
+			data与el的2种写法
+					1.el有2种写法
+									(1).new Vue时候配置el属性。
+									(2).先创建Vue实例，随后再通过vm.$mount('#root')指定el的值。
+					2.data有2种写法
+									(1).对象式
+									(2).函数式
+									如何选择：目前哪种写法都可以，以后学习到组件时，data必须使用函数式，否则会报错。
+					3.一个重要的原则：
+									由Vue管理的函数，一定不要写箭头函数，一旦写了箭头函数，this就不再是Vue实例了。
+		-->
+		<!-- 准备好一个容器-->
+		<div id="root">
+			<h1>你好，{{name}}</h1>
+		</div>
+	</body>
 
+	<script type="text/javascript">
+		Vue.config.productionTip = false //阻止 vue 在启动时生成生产提示。
 
+		//el的两种写法
+		/* const v = new Vue({
+			//el:'#root', //第一种写法
+			data:{
+				name:'尚硅谷'
+			}
+		})
+		console.log(v)
+		v.$mount('#root') //第二种写法 */
 
+		//data的两种写法
+		new Vue({
+			el:'#root',
+			//data的第一种写法：对象式
+			/* data:{
+				name:'尚硅谷'
+			} */
+
+			//data的第二种写法：函数式  	注意：组件用这个！
+			/* data:function(){	//喏，这里是全部写出来，下面就是它的简写了
+					return {
+						name:'尚硅谷'
+					}
+				}
+			*/
+			data(){
+				console.log('@@@',this) //此处的this是Vue实例对象
+				return{
+					name:'尚硅谷'
+				}
+			}
+		})
+	</script>
+</html>
+```
 
 ## 05 MVVM模型
 
