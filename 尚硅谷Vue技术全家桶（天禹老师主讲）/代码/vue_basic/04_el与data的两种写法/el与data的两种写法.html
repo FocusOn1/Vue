@@ -46,7 +46,13 @@
 				name:'尚硅谷'
 			} */
 
-			//data的第二种写法：函数式
+			//data的第二种写法：函数式  	注意：组件用这个！
+			/* data:function(){	//喏，这里是全部写出来，下面就是它的简写了
+					return {
+						name:'尚硅谷'
+					}
+				}
+			*/
 			data(){
 				console.log('@@@',this) //此处的this是Vue实例对象
 				return{
