@@ -1,0 +1,14 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "pwa-chrome",
+            "request": "launch",
+            "name": "Open 模板语法Demo.html",
+            "file": "d:\\笔记\\前端\\Vue\\尚硅谷Vue技术全家桶（天禹老师主讲）\\代码\\vue_basic\\02_Vue模板语法\\模板语法Demo.html"
+        }
+    ]
+}
